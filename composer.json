@@ -1,0 +1,35 @@
+{
+  "name": "roaringstars/twitter-bitcoin-wallet",
+  "autoload": {
+    "psr-4": {
+      "App\\Library\\": "public/library/"
+    }
+  },
+  "scripts": {
+    "app-init": [
+      "composer install"
+    ],
+    "lint": [
+      "cp phpcs.xml.dist phpcs.xml",
+      "vendor/bin/phpcs -p",
+      "vendor/bin/phpstan analyse"
+    ],
+    "lintfix": [
+      "vendor/bin/phpcbf -v"
+    ]
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.3",
+    "maxbanton/dd": "^1.1",
+    "abraham/twitteroauth": "^3.1",
+    "dg/twitter-php": "^4.1",
+    "jimmiw/php-time-ago": "^3.2",
+    "ext-intl" : "*",
+    "lnpay/lnpay-php": "^0.1.0",
+    "guzzlehttp/guzzle": "^7.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*",
+    "phpstan/phpstan": "0.12.93"
+  }
+}

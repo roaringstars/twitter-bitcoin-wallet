@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  app:
+    image: roaringstars/apache-php-imagick:latest
+    container_name: ${APP_CONTAINER_NAME}
+    mem_limit: 300m
+    volumes:
+      - ./:/app
+      - ~/.composer/auth.json:/root/.composer/auth.json
+      - composer_cache:/root/.composer/cache
+    ports:
+      - ${APP_HTTP_PORT}:80
+      - ${APP_HTTPS_PORT}:443
+    networks:
+      - local
+      - proxy
+      
+networks:
+  local:
+  proxy:
+    external: true
+
+volumes:
+  composer_cache:
